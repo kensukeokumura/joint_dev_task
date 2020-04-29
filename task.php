@@ -23,6 +23,16 @@ $array2 = ["bird", "bat", "tiger"];
 
   # 以下に回答を記載
 
+<?php
+
+$array1 = ["dog", "cat", "fish"];
+$array2 = ["bird", "bat", "tiger"];
+
+$arrayMerge = array_merge($array1,$array2);
+print_r($arrayMerge);
+
+?>
+
 echo PHP_EOL;
 
 print("#####q3#####".PHP_EOL);
@@ -30,12 +40,37 @@ $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
   # 以下に回答を記載
 
+<?php
+
+$numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
+
+$numberTarget=3;
+$count=0;
+
+  foreach($numbers as $value){
+    if($value===$numberTarget){
+      $count++;
+    }
+  }
+
+print $numberTarget.'は$numbersの配列に'.$count."個あります";
+
+?>
+
 echo PHP_EOL;
 
 print("#####q4#####".PHP_EOL);
 $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
 
   # 以下に回答を記載
+
+<?php
+
+$sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
+
+print_r(array_diff($sports,[null]));
+
+?>
 
 echo PHP_EOL;
 
