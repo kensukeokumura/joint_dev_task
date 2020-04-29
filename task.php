@@ -80,12 +80,48 @@ $array2 = [1, 5, 8, 10];
 
   # 以下に回答を記載
 
+<?php
+
+$array1 = [];
+$array2 = [1, 5, 8, 10];
+
+
+if(empty($array1)){
+  print "true";
+} else {
+  print "false";
+}
+
+print"<br>";
+
+if(empty($array2)){
+  print "true";
+} else {
+  print "false";
+}
+
+?>
+
 echo PHP_EOL;
 
 print("#####q6#####".PHP_EOL);
 $numbers1 = [1, 2, 3, 4, 5];
 
   # 以下に回答を記載
+
+<?php
+
+$numbers1 = [1, 2, 3, 4, 5];
+
+foreach($numbers1 as $value){
+  $result=$value*10;
+  $numbers2[]=$result;
+}
+
+print "<pre>";
+print_r($numbers2);
+
+?>
 
 echo PHP_EOL;
 
