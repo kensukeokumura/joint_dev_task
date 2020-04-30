@@ -10,7 +10,6 @@ $names = ["田中", "佐藤", "佐々木", "高橋"];
 
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 array_push($names,"齊藤");
-print "<pre>";
 print_r($names);
 
 ?>
@@ -92,7 +91,6 @@ if(empty($array1)){
   print "false";
 }
 
-print"<br>";
 
 if(empty($array2)){
   print "true";
@@ -118,7 +116,6 @@ foreach($numbers1 as $value){
   $numbers2[]=$result;
 }
 
-print "<pre>";
 print_r($numbers2);
 
 ?>
@@ -130,12 +127,40 @@ $array = ["1", "2", "3", "4", "5"];
 
   # 以下に回答を記載
 
+<?php
+
+$array = ["1", "2", "3", "4", "5"];
+
+$result = array_map("intval", $array);
+
+// 確認用
+var_dump ($result);
+
+// 結果
+print_r($result);
+
 echo PHP_EOL;
+
+?>
 
 print("#####q8#####".PHP_EOL);
 $programming_languages = ["php","ruby","python","javascript"];
 
   # 以下に回答を記載
+
+<?php
+
+$programming_languages = ["php","ruby","python","javascript"];
+
+# コードを追加
+// 頭文字大文字
+$programming_languages=array_flip(array_map('ucfirst', $programming_languages));
+$programming_languages=array_flip($programming_languages);
+
+// 全部大文字
+$upper_case_programming_languages=array_flip(array_map('strtoupper', $programming_languages));
+$upper_case_programming_languages=array_flip($upper_case_programming_languages);
+
 
   # 以下は変更しないで下さい
 print_r($programming_languages);
@@ -144,33 +169,103 @@ print_r($upper_case_programming_languages);
 
 echo PHP_EOL;
 
+?>
+
 print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
 
+<?php
+
+$names = ["田中", "佐藤", "佐々木", "高橋"];
+
+$id = ["会員No.1","会員No.2","会員No.3","会員No.4"];
+
+$result = [];
+foreach($names as $key => $name){
+    $id = $key + 1;
+    $id_name = "会員No.".$id." ".$name;
+    array_push($result,$id_name);
+}
+print_r($result);
+
+
+
 echo PHP_EOL;
+
+?>
 
 print("#####q10#####".PHP_EOL);
 $foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","うに丼"];
 
   # 以下に回答を記載
 
-echo PHP_EOL;
+<?php
+
+$foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","うに丼"];
+
+foreach ($foods as $food){
+
+  print $food."は、";
+  
+  if (preg_match("/うに/", $food)){
+    print "好物です。<br>";
+  } else {
+    print "まぁまぁ好きです。<br>";
+  }
+}
+
+?>
+
+
 
 print("#####q11#####".PHP_EOL);
 $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]];
 
   # 以下に回答を記載
 
+<?php
+
+$sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]];
+
+  foreach ($sports as $sport){
+  if (array_key_exists(1,(array)$sport)){
+    foreach ($sport as $multiarraySport){
+      $A[]=$multiarraySport;
+    }
+  } else {
+    $A[]=$sport;
+  } 
+}
+
+$result=array_values(array_unique($A));
+
+print "ユーザーの趣味一覧<br>";
+foreach($result as $key => $val){
+  print "No".($key+1)." ".$val."<br>";
+}
+
+
 echo PHP_EOL;
+
+?>
 
 print("#####q12#####".PHP_EOL);
 $data = [ "user" => [ "name" => "satou", "age" => 33 ] ];
 
   # 以下に回答を記載
 
+<?php
+
+$data = [ "user" => [ "name" => "satou", "age" => 33 ] ];
+
+print $data["user"]["name"];
+
+
 echo PHP_EOL;
+
+?>
 
 print("#####q13#####".PHP_EOL);
 $user_data = [ "name" => "神里", "age" => 31, "address" => "埼玉"];
@@ -178,14 +273,37 @@ $update_data = [ "age" => 32, "address" => "沖縄" ];
 
   # 以下に回答を記載
 
+<?php
+
+$user_data = [ "name" => "神里", "age" => 31, "address" => "埼玉"];
+$update_data = [ "age" => 32, "address" => "沖縄" ];
+
+$user_data = array_replace($user_data,$update_data);
+
+print_r($user_data);
+
 echo PHP_EOL;
+
+?>
 
 print("#####q14#####".PHP_EOL);
 $data = [ "name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "soccer", "email" => "hoge@fuga.com" ];
 
   # 以下に回答を記載
 
+<?php
+
+$data = [ "name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "soccer", "email" => "hoge@fuga.com" ];
+
+foreach ($data as $subscData){
+  $result[]=$subscData;
+}
+
+print_r ($result);
+
 echo PHP_EOL;
+
+?>
 
 print("#####q15#####".PHP_EOL);
 $data1 = [ "name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admin" ];
@@ -193,7 +311,29 @@ $data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
 
   # 以下に回答を記載
 
+<?php
+
+$data1 = [ "name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admin" ];
+
+$data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
+
+$targetKey="age";
+
+if (array_key_exists($targetKey,$data1)){
+  print "OK<br>";
+} else {
+  print "NG<br>";
+}
+
+if (array_key_exists($targetKey,$data2)){
+  print "ok<br>";
+} else {
+  print "NG<br>";
+}
+
 echo PHP_EOL;
+
+?>
 
 print("#####q16#####".PHP_EOL);
 $users = [
@@ -205,7 +345,22 @@ $users = [
 
   # 以下に回答を記載
 
+<?php
+
+$users = [
+  [ "name" => "satou", "age" => 22 ],
+  [ "name" => "yamada", "age" => 12 ],
+  [ "name" => "takahashi", "age" => 32 ],
+  [ "name" => "nakamura", "age" => 41 ]
+];
+
+foreach($users as $info){
+  print "私の名前は".$info["name"]."です。年齢は".$info["age"]."歳です。<br>";
+}
+
 echo PHP_EOL;
+
+?>
 
 print("#####q17#####".PHP_EOL);
 class User
