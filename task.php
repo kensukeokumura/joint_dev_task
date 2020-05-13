@@ -451,17 +451,46 @@ echo PHP_EOL;
 ?>
 
 print("#####q20#####".PHP_EOL);
+
+<?php
+
 class Human
 {
 
-  # コードを追加
+    public $name;
+    public $age;
+    
+    function __construct($name,$age){
+        $this->name = $name;
+        $this->age = $age;
+    }
 
 }
 
 class Zoo
 {
     
-  # コードを追加
+    protected $name;
+    protected $fee;
+    
+    function __construct($zoo,$fee){
+        $this->zoo = $zoo;
+        $this->fee = $fee;
+    }
+    
+    function info_entry_fee(Human $human){
+
+      
+        if($human->age <= 5){
+            print($human->name."さんの入場料金は ".$this->fee["infant"]." 円です。".PHP_EOL);
+        }elseif($human->age <= 12){
+            print($human->name."さんの入場料金は ".$this->fee["children"]." 円です。".PHP_EOL);
+        }elseif($human->age <= 64){
+            print($human->name."さんの入場料金は ".$this->fee["adult"]." 円です。".PHP_EOL);
+        }elseif($human->age <= 120){
+            print($human->name."さんの入場料金は ".$this->fee["senior"]." 円です。".PHP_EOL);
+        }
+    }
     
 }
 
@@ -475,7 +504,9 @@ $human4 = new Human("ぎん",108);
 $humans = [ $human1, $human2, $human3, $human4 ];
 
 foreach($humans as $human){
-  $zoo->info_entry_fee($human);
+    $zoo->info_entry_fee($human);
 }
 
 echo PHP_EOL;
+
+?>
